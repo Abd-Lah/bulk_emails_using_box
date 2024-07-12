@@ -1,4 +1,4 @@
-# Project Name
+# Bulk emails using box with laravel and vue
 
 ## Overview
 This project is designed for sending bulk emails using Laravel and Vue.js. It includes features for authentication via social login (Google or Microsoft) and email confirmation through a verification link. Users can manage email content and upload email lists in CSV or TXT format or manually enter emails.
