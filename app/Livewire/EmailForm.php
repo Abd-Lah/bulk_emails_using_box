@@ -17,8 +17,15 @@ class EmailForm extends Component
         'form.email' => 'required|email',
         'form.key' => 'required|string',
     ];
-    
 
+    public function mount()
+    {
+        if(session()->has('data'))
+        {
+            $this->form = session('data');
+            session()->forget('data');
+        }
+    }
 
     public function check_account()
     {
@@ -33,14 +40,12 @@ class EmailForm extends Component
 
             // Attempt to connect and EHLO/HELO the server
             $transport->start();
-
-            // Dispatch event to create transport in ContentEditor component
-            $this->dispatch('create-transport', $this->form->all());
-
-            session()->flash('success', 'Connection successful!');
-
+            session()->flash('success', 'Connected');
+            session()->flash('data' ,$this->form);
+            $transport->stop();
+            return $this->redirect('/email-content', navigate: true);
         } catch (TransportExceptionInterface $e) {
-            session()->flash('error', 'Connection failed: ' . $e->getMessage());
+            session()->flash('error', 'Connection failed !');
         }
     }
 

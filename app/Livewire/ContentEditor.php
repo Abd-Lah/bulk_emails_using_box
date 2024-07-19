@@ -3,10 +3,8 @@
 namespace App\Livewire;
 
 use App\Livewire\Forms\Email;
-use Livewire\Attributes\On;
 use Livewire\Component;
 use Symfony\Component\Mailer\Mailer;
-use Symfony\Component\Mailer\Transport;
 use Symfony\Component\Mailer\Transport\Smtp\EsmtpTransport;
 use Symfony\Component\Mime\Email as SymfonyEmail;
 use Symfony\Component\Mime\Address;
@@ -31,22 +29,35 @@ class ContentEditor extends Component
         'content' => 'required',
     ];
 
-    public function sendTestEmail()
+    public function mount()
+    {
+        if(session('data')){
+            $this->form = session()->get('data');
+        }else {
+            return $this->redirect('/', navigate: true);
+        }
+    }
+
+    public function back(){
+        session()->flash('data', $this->form);
+        return $this->redirect('/', navigate: true);
+    }
+
+    public function sendEmail()
     {
         $this->validate();
-
         try {
             // Create transport
             $transport = new EsmtpTransport($this->form->host, $this->form->port);
             $transport->setUsername($this->form->email);
             $transport->setPassword($this->form->key);
+            $transport->start();
+            session()->flash('success', 'Transport connected successfully!');
+        } catch (\Throwable $e) {
+            session()->flash('error', 'Failed to connect transport: ' );
+        }
+        try {
 
-            try {
-                $transport->start();
-                session()->flash('success', 'Transport connected successfully!');
-            } catch (\Throwable $e) {
-                session()->flash('error', 'Failed to connect transport: ' );
-            }
             $mailer = new Mailer($transport);
 
             $email = (new SymfonyEmail())
@@ -77,17 +88,8 @@ class ContentEditor extends Component
         $this->recipients = array_values($this->recipients);
     }
 
-    #[On('create-transport')]
-    public function connect($form)
-    {
-        $this->form->email = $form['email'];
-        $this->form->host = $form['host'];
-        $this->form->port = $form['port'];
-        $this->form->key = $form['key'];
-    }
-
     public function render()
     {
-        return view('livewire.content-editor');
+        return view('livewire.content-editor',$this->form);
     }
 }
