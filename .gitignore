@@ -10,15 +10,5 @@ Thumbs.db
 /.env
 /.env.*
 
-# Ignore node_modules globally (in case it appears at the root level)
+# Ignore node_modules at the root level (global for any Node projects)
 node_modules/
-
-# Ignore logs globally
-*.log
-
-# Ignore build artifacts globally
-/build/
-dist/
-
-# Ignore composer files for PHP globally
-composer.lock
