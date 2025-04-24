@@ -1,0 +1,32 @@
+### Single folder: Laravel with Livewire
+
+# Ignore PHP and Laravel-related files specific to this folder
+/single/laravel/vendor
+/single/laravel/storage/*
+/single/laravel/.env
+/single/laravel/.env.*
+
+
+### Multiple folder: React frontend and Laravel backend
+
+# Ignore React build artifacts (for frontend)
+multiple/frontend/build
+multiple/frontend/.env
+multiple/frontend/.env.*
+
+# Ignore npm/yarn log files for frontend (React)
+multiple/frontend/npm-debug.log*
+multiple/frontend/yarn-debug.log*
+multiple/frontend/yarn-error.log*
+
+# Ignore other React-specific files in the frontend
+multiple/frontend/node_modules
+
+# Ignore Laravel files inside the backend folder
+multiple/backend/vendor
+multiple/backend/storage/*
+multiple/backend/.env
+multiple/backend/.env.*
+
+# Ignore database files (if applicable)
+multiple/backend/database/*.sqlite
