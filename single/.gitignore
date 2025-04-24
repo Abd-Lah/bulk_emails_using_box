@@ -1,0 +1,10 @@
+# Ignore Laravel vendor and storage directories
+.idea
+.vscode
+/vendor
+/storage/*
+/.env
+
+# Ignore Livewire and other temporary files
+/public/hot
+/public/storage

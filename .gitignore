@@ -1,0 +1,14 @@
+# Ignore IDE files
+.idea
+.vscode
+
+# Ignore OS-specific files
+.DS_Store
+Thumbs.db
+
+# Ignore environment files globally
+/.env
+/.env.*
+
+# Ignore node_modules at the root level (global for any Node projects)
+node_modules/

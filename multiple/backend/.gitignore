@@ -1,0 +1,10 @@
+# Ignore Laravel vendor and storage directories
+.idea
+.vscode
+.devcontainer
+/vendor
+/storage/*
+/.env
+
+# Ignore Laravel-specific environment files
+/.env.*
