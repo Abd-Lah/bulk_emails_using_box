@@ -18,8 +18,7 @@ class DataController extends Controller
     public function get_data_emails(Request $request){
         $data = Data::find($request->input('id'));
         $emails = $data->emails()->paginate(8);
-        return $emails;
-    }
+        return $emails;    }
     public function search_by_email(Request $request)
     {
         $email = $request->input('email');

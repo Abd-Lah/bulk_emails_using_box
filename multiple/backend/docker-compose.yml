@@ -3,12 +3,7 @@ version: '3'
 services:
 
     laravel.test:
-        build:
-            context: ./vendor/laravel/sail/runtimes/8.3
-            dockerfile: Dockerfile
-            args:
-                WWWGROUP: '${WWWGROUP}'
-        image: sail-8.3/app
+        image: laravelsail/php80-composer  # Use the official Laravel Sail image
         extra_hosts:
             - 'host.docker.internal:host-gateway'
         ports:
@@ -27,7 +22,7 @@ services:
         depends_on:
             - mysql
             - redis
-
+        entrypoint: /bin/bash -c "composer install && php-fpm"  # Automatically install composer dependencies
 
     mysql:
         image: 'mysql/mysql-server:8.0'

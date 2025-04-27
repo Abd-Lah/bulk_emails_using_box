@@ -49,7 +49,7 @@
             Don't worry, your data will not be stored anywhere. If you don't trust this online version, you can run the application locally from our GitHub repository.
         </div>
         <div class="mt-2">
-            <a href="https://github.com/Abd-Lah/bulk_emails_using_box" target="_blank" class="text-blue-500 hover:underline">GitHub Repository</a>
+            <a href="https://github.com/your-repo-url" target="_blank" class="text-blue-500 hover:underline">GitHub Repository</a>
         </div>
     </div>
     <div wire:loading wire:target="check_account" >

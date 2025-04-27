@@ -218,7 +218,6 @@ This project is a backend email processing and management system designed to man
 ### **Requirements:**
 - Docker
 - Docker Compose
-- Node.js
 
 ### **Steps to Set Up the Frontend:**
 
@@ -227,7 +226,7 @@ This project is a backend email processing and management system designed to man
     cd ./frontend
     ```
 
-2**Start the frontend container using Docker Compose:**
+2** Start the frontend container using Docker Compose:**
     ```bash
     docker-compose up --build
     ```

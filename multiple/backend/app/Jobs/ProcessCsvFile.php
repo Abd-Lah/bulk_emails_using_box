@@ -42,7 +42,7 @@ class ProcessCsvFile implements ShouldQueue
                         $emails[] = [
                             'id_data' => $this->dataId,
                             'email' => $email,
-                            'active' => true,
+                            'active' => false,
                             'created_at' => now(),
                             'updated_at' => null,
                         ];

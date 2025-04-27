@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  react-app:
+    build:
+      context: .  # Path to your React app
+      dockerfile: Dockerfile  # Name of your Dockerfile in the frontend directory
+    ports:
+      - '3000:3000'  # Map port 3000 on the host to port 3000 on the container
+    volumes:
+      - './:/app/'  # Map your React app code to the /app directory in the container
+    environment:
+      - NODE_ENV=development  # Set Node environment to development

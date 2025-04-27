@@ -18,8 +18,8 @@ return new class extends Migration
             $table->string('password');
             $table->integer('port');
             $table->string('host');
-            $table->boolean('active');
             $table->string('encryption');
+            $table->boolean('active');
             $table->timestamps();
         });
     }

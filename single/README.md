@@ -108,7 +108,7 @@ cd ./single
 
 ```bash
 cp .env.example .env
-./vendor/bin/sail up -d
+docker-compose up
 docker ps [copy the id of the laravel-sail]
 docker exec -it [paste the id of the container] bash
 composer install
@@ -130,7 +130,11 @@ npm run dev
 ```
 
 4**Access the app**
-
+afer installing dependencies
+stop container 
+    docker-compose down
+and start using laravel sail
+    ./vendor/bin/sail up
 Visit: [http://localhost](http://localhost)
 
 ---

@@ -30,10 +30,9 @@ Route::prefix('email')->group(function () {
 });
 //accounts
 Route::prefix('accounts')->group(function () {
-    Route::get('/check_available', [EmailController::class, 'checkAvailableAccount']);
     Route::get('/', [SmtpAccountController::class, 'index']);
-    Route::get('/{id}', [SmtpAccountController::class, 'getUser']);
     Route::post('/', [SmtpAccountController::class, 'store']);
+    Route::get('/check_available', [EmailController::class, 'checkAvailableAccount']);
     Route::put('/{id}', [SmtpAccountController::class, 'update']);
     Route::delete('/{id}', [SmtpAccountController::class, 'delete']);
 });
